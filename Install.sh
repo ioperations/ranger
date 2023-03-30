@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 case `uname -s` in
-    Linux)
+    "Linux")
 
         if cat /etc/os-release | grep debian ;then
             sudo apt install -y atool bsdtar unrar-free p7zip \
@@ -12,7 +12,7 @@ case `uname -s` in
                 unzip highlight exiftool mediainfo \
                 libxext-dev
             sudo pip3 install ueberzug
-        else if cat /etc/os-release | grep -i arch ; then
+        elif cat /etc/os-release | grep -i arch ; then
             sudo pacman -S atool p7zip \
                 w3m mediainfo \
                 unzip highlight 
@@ -20,7 +20,7 @@ case `uname -s` in
         else
                 echo "not debian or arch"
         fi
-            break
+            git submodule update --init --recursive
             ;;
     *)
         echo "not a linux distribution"
